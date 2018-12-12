@@ -28,6 +28,9 @@ libraryDependencies += "com.typesafe.akka" %% "akka-stream-kafka-testkit" % "1.0
 libraryDependencies += "org.sangria-graphql" %% "sangria" % "1.4.1"
 libraryDependencies += "org.sangria-graphql" %% "sangria-play-json" % "1.0.4"
 
+// Mongo
+libraryDependencies += "org.mongodb.scala" %% "mongo-scala-driver" % "2.4.2"
+
 // Metrics
 libraryDependencies += "nl.grons" %% "metrics4-scala" % "4.0.1"
 libraryDependencies += "nl.grons" %% "metrics4-akka_a24" % "4.0.1"
