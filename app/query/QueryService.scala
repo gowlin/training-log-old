@@ -10,11 +10,9 @@ import sangria.schema._
 
 import scala.concurrent.{ExecutionContext, Future}
 
-case class QueryContext()
-
 case class Name(id: String, name: String)
 
-class QueryService @Inject()() {
+class QueryService @Inject()(queryContext: QueryContext) {
 
   private val PersonsType = deriveObjectType[QueryContext, Name](
     ObjectTypeName("Name"),
@@ -48,7 +46,7 @@ class QueryService @Inject()() {
       parsed <- Future.fromTry(QueryParser.parse(query))
       result <- Executor.execute(RootQuery,
                                  parsed,
-                                 QueryContext(),
+                                 queryContext,
                                  variables = variables)
     } yield { result }
   }
